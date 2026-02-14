@@ -1,8 +1,15 @@
 import Header from "./Header";
 import { useEffect, useState } from "react";
 
+type JokeAPI = {
+    id: number;
+    type: string;
+    setup: string;
+    punchline: string;
+};
+
 function Joke() {
-    const [joke, setJoke] = useState(null);
+    const [joke, setJoke] = useState<JokeAPI | null>(null);
 
     useEffect(() => {
         fetch('https://official-joke-api.appspot.com/jokes/random')
